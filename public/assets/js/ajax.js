@@ -1,17 +1,19 @@
-$('.purchaseCoupon').on('click', function(e){
-	e.preventDefault();
+$('#submitScore').on('click', function(e){
+	var randNum = Math.random(); //this gets me random number between 0 and 1
 
-	var thisForm = $(this).parent();
+	var randNumUpToFiveHund = randNum * 500;
 
-	var couponid = thisForm.data('couponid');
-	var quant = $(this).siblings().eq(0).val();
+	var roundUpRand = Math.floor(randNumUpToFiveHund);
 
 	var data = {
-		coupon_id: couponid,
-		quantity: quant
+		total_score: roundUpRand,
 	}
 
-	$.post("/coupons/users/create", data, function(response){
+	$.ajax({
+		url: "/scores/create", 
+		method: "POST",
+		data: data, 
+	}).done(function(response){
 		alert("the response from the server is: " + response + ". If 200 then that's good. If 500 then there was something wrong.");
 	});
 });

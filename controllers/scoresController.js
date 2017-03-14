@@ -26,18 +26,10 @@ router.get('/', function(req,res) {
 });
 
 router.post('/create', function(req,res) {
-	var query = "SELECT * FROM users u LEFT JOIN user_coupons uc ON uc.user_id = u.id LEFT JOIN coupons c ON c.id = uc.coupon_id WHERE u.id = ?"
+	var query = "INSERT INTO scores (total_score, user_id) VALUES (?, ?)";
 
-	connection.query(query, [req.session.user_id], function(err, coupons) {
-		res.render('coupons/purchased', {
-			purchase_coupon: false,
-			coupons: coupons,
-			logged_in: req.session.logged_in,
-			user_email: req.session.user_email,
-			user_id: req.session.user_id,
-			company: req.session.company,
-			username: req.session.username
-		});
+	connection.query(query, [req.body.total_score, req.session.user_id], function(err, coupons) {
+		res.send('200');
 	});
 });
 

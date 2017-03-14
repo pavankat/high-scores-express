@@ -14,6 +14,6 @@ $('#submitScore').on('click', function(e){
 		method: "POST",
 		data: data, 
 	}).done(function(response){
-		alert("the response from the server is: " + response + ". If 200 then that's good. If 500 then there was something wrong.");
+		window.location = "/scores"
 	});
 });

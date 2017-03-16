@@ -45,7 +45,15 @@ function countDown(){
 	}, 1 * 1000);
 }
 
-countDown();
+$('#container').hide();
+
+$('#startGame').on('click', function(){
+	countDown();
+	$('#container').show();
+})
+
+
+
 
 function loadQuestion(){
 

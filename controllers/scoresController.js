@@ -51,7 +51,7 @@ router.get('/hangman', function(req,res) {
 });
 
 router.get('/quiz', function(req,res) {
-	if (req.session.logged_in){
+	//if (req.session.logged_in){
 		var query = "SELECT * FROM scores ORDER BY total_score DESC"
 
 		connection.query(query, function(err, scores) {
@@ -64,9 +64,9 @@ router.get('/quiz', function(req,res) {
 			});
 
 		});
-	}else{
-		res.redirect('/users/sign-in');
-	}
+	// }else{
+	// 	res.redirect('/users/sign-in');
+	// }
 
 	
 });

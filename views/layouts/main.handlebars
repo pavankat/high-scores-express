@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		{{#if logged_in}}
-			<a href="/users/sign-out" id="sign-out">Sign Out ({{this.username}})</a>
+			<a href="/users/sign-out" id="sign-out">Sign Out ({{this.username}})</a> | <a href="/scores">RPS</a> | <a href="/scores/hangman">Hangman</a> | <a href="/scores/quiz">Quiz</a>
 
 			<p class="clear"><strong>logged_in:</strong> {{logged_in}} |
 			<strong>user_email:</strong> {{user_email}} |
@@ -21,6 +21,7 @@
 		{{{ body }}}
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
 		<script src="/assets/js/ajax.js"></script>
+		<script src="/assets/js/hangman.js"></script>
 	</body>
 
 </html>
